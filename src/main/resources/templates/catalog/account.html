@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>account</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+    <div id="BackLink">
+        <a href="/catalog/index">Return to Main Menu</a>
+    </div>
+
+    <div id="Catalog">
+
+        <h2>Account</h2>
+
+        <table>
+            <tr>
+                <th>user id</th>
+                <th>password</th>
+                <th>email</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>address1</th>
+                <th>address2</th>
+                <th>city</th>
+                <th>zip</th>
+                <th>country</th>
+                <th>phone</th>
+            </tr>
+
+            <tr th:each="account:${accountList}">
+
+                <td th:text="${account.username}"></td>
+                <td th:text="${account.password}"></td>
+                <td th:text="${account.email}"></td>
+                <td th:text="${account.firstName}"></td>
+                <td th:text="${account.lastName}"></td>
+                <td th:text="${account.address1}"></td>
+                <td th:text="${account.address2}"></td>
+                <td th:text="${account.city}"></td>
+                <td th:text="${account.zip}"></td>
+                <td th:text="${account.country}"></td>
+                <td th:text="${account.phone}"></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

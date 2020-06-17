@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.csu.manage.persistence.AccountMapper">
+    <cache/>
+
+    <select id="getAccountList" parameterType="string" resultType="Account">
+            SELECT
+                 USERID AS USERNAME,
+                 PASSWORD,
+                 EMAIL,
+                 FIRSTNAME AS firstName,
+                 LASTNAME,
+                 ADDR1 AS address1,
+                 ADDR2 AS address2,
+                 CITY,
+                 ZIP,
+                 COUNTRY,
+                 PHONE
+            FROM ACCOUNT A,SIGNON S
+            WHERE A.USERID = S.USERNAME
+    </select>
+
+
+
+</mapper>

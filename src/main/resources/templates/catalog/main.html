@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+    <div id="Welcome">
+        <div id="WelcomeContent">
+
+        </div>
+    </div>
+
+    <div id="Main">
+        <div id="Sidebar">
+            <div id="SidebarContent">
+                <a href="/catalog/viewAccount"><h3>Account</h3></a>
+                <a href="/catalog/viewCategory?categoryId=FISH"><h3>Fish</h3></a>
+                <a href="/catalog/viewCategory?categoryId=DOGS"><h3>Dogs</h3></a>
+                <a href="/catalog/viewCategory?categoryId=CATS"><h3>Cats</h3></a>
+                <a href="/catalog/viewCategory?categoryId=REPTILES"><h3>Reptiles</h3></a>
+                <a href="/catalog/viewCategory?categoryId=BIRDS"><h3>Birds</h3></a>
+                <a href=#><h3>Order</h3></a>
+            </div>
+        </div>
+
+        <div id="MainImage">
+            <div id="MainImageContent">
+                <h2>Welcome to the background management system</h2>
+<!--                <map name="estoremap">-->
+<!--                    <area alt="Birds" coords="72,2,280,250" href="/catalog/viewCategory?categoryId=BIRDS" shape="RECT" />-->
+<!--                    <area alt="Fish" coords="2,180,72,250" href="/catalog/viewCategory?categoryId=FISH" shape="RECT" />-->
+<!--                    <area alt="Dogs" coords="60,250,130,320" href="/catalog/viewCategory?categoryId=DOGS" shape="RECT" />-->
+<!--                    <area alt="Reptiles" coords="140,270,210,340" href="/catalog/viewCategory?categoryId=REPTILES" shape="RECT" />-->
+<!--                    <area alt="Cats" coords="225,240,295,310" href="/catalog/viewCategory?categoryId=CATS" shape="RECT" />-->
+<!--                    <area alt="Birds" coords="280,180,350,250" href="/catalog/viewCategory?categoryId=BIRDS" shape="RECT" />-->
+<!--                </map>-->
+<!--                <img height="355" src="../images/splash.gif" align="middle" usemap="#estoremap" width="350" />-->
+            </div>
+        </div>
+
+        <div id="Separator">&nbsp;</div>
+    </div>
+
+</div>
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>
