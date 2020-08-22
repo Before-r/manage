@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add_Item</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+
+    <div id="Catalog">
+        <table>
+            <form action="/catalog/add_Item" method="post" th:object="${newItem}">
+                <tr>
+                    <th>itemId</th>
+                    <td><input type="text" th:field="*{itemId}"></td>
+                </tr>
+                <tr>
+                    <th>productId</th>
+                    <td><input type="text" th:field="*{productId}"></td>
+                </tr>
+                <tr>
+                    <th>listPrice($)</th>
+                    <td><input type="text" th:field="*{listPrice}"></td>
+                </tr>
+                <tr>
+                    <th>unitCost($)</th>
+                    <td><input type="text" th:field="*{unitCost}"></td>
+                </tr>
+                <tr>
+                    <th>supplierId</th>
+                    <td><input type="text" th:field="*{supplierId}"></td>
+                </tr>
+                <tr>
+                    <th>status</th>
+                    <td><input type="text" th:field="*{status}"></td>
+                </tr>
+                <tr>
+                    <th>attribute</th>
+                    <td><input type="text" th:field="*{attribute1}"></td>
+                </tr>
+                <tr>
+                    <th>inventory</th>
+                    <td><input type="text" th:field="*{quantity}"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Save Information"></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

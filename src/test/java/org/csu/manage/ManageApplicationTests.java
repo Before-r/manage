@@ -19,6 +19,6 @@ class ManageApplicationTests {
 
     @Test
     void test() {
-        catalogService.getAccountList();
+        
     }
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update_Account</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+
+    <div id="Catalog">
+        <table>
+            <form action="/catalog/updateAccount" method="post" th:object="${account}">
+            <tr>
+                <th>user id</th>
+                <td><input type="text" th:field="*{username}"></td>
+            </tr>
+            <tr>
+                <th>password</th>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
+                <th>email</th>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+            <tr>
+                <th>firstName</th>
+                <td><input type="text" th:field="*{firstName}"></td>
+            </tr>
+            <tr>
+                <th>lastName</th>
+                <td><input type="text" th:field="*{lastName}"></td>
+            </tr>
+            <tr>
+                <th>address1</th>
+                <td><input type="text" th:field="*{address1}"></td>
+            </tr>
+            <tr>
+                <th>address2</th>
+                <td><input type="text" th:field="*{address2}"></td>
+            </tr>
+            <tr>
+                <th>city</th>
+                <td><input type="text" th:field="*{city}"></td>
+            </tr>
+            <tr>
+                <th>zip</th>
+                <td><input type="text" th:field="*{zip}"></td>
+            </tr>
+            <tr>
+                <th>country</th>
+                <td><input type="text" th:field="*{country}"></td>
+            </tr>
+            <tr>
+                <th>state</th>
+                <td><input type="text" th:field="*{state}"></td>
+            </tr>
+            <tr>
+                <th>phone</th>
+                <td><input type="text" th:field="*{phone}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Save Information"></td>
+            </tr>
+            </form>
+<!--            <form action="/catalog/updateAccount" method="post" th:object="${account}">-->
+<!--                <tr>-->
+<!--                    <td><input type="text" th:field="*{username}"></td>-->
+<!--                    <td><input type="text" th:field="*{password}"></td>-->
+<!--                    <td><input type="text" th:field="*{email}"></td>-->
+<!--                    <td><input type="text" th:field="*{firstName}"></td>-->
+<!--                    <td><input type="text" th:field="*{lastName}"></td>-->
+<!--                    <td><input type="text" th:field="*{address1}"></td>-->
+<!--                    <td><input type="text" th:field="*{address2}"></td>-->
+<!--                    <td><input type="text" th:field="*{city}"></td>-->
+<!--                    <td><input type="text" th:field="*{zip}"></td>-->
+<!--                    <td><input type="text" th:field="*{country}"></td>-->
+<!--                    <td><input type="text" th:field="*{state}"></td>-->
+<!--                    <td><input type="text" th:field="*{phone}"></td>-->
+<!--                    <td><input type="submit" value="Save Information"></td>-->
+<!--                </tr>-->
+<!--            </form>-->
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

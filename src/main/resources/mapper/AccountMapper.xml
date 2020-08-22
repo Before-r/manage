@@ -4,6 +4,25 @@
 
 <mapper namespace="org.csu.manage.persistence.AccountMapper">
     <cache/>
+    <select id="getAccount" parameterType="string" resultType="Account">
+            SELECT
+                 USERID AS USERNAME,
+                 PASSWORD,
+                 EMAIL,
+                 FIRSTNAME AS firstName,
+                 LASTNAME,
+                 ADDR1 AS address1,
+                 ADDR2 AS address2,
+                 CITY,
+                 ZIP,
+                 COUNTRY,
+                 STATE,
+                 PHONE
+            FROM ACCOUNT A,SIGNON S
+            WHERE A.USERID = #{username}
+            AND A.USERID = S.USERNAME
+    </select>
+
 
     <select id="getAccountList" parameterType="string" resultType="Account">
             SELECT
@@ -17,10 +36,28 @@
                  CITY,
                  ZIP,
                  COUNTRY,
+                 STATE,
                  PHONE
             FROM ACCOUNT A,SIGNON S
             WHERE A.USERID = S.USERNAME
     </select>
+
+    <update id="updateAccount" parameterType="Account">
+        UPDATE ACCOUNT a,SIGNON s SET
+        PASSWORD = #{password},
+        EMAIL = #{email},
+        FIRSTNAME = #{firstName},
+        LASTNAME = #{lastName},
+        ADDR1 = #{address1},
+        ADDR2 = #{address2,jdbcType=VARCHAR},
+        CITY = #{city},
+        STATE = #{state},
+        ZIP = #{zip},
+        COUNTRY = #{country},
+        PHONE = #{phone}
+        WHERE a.USERID = #{username}
+        AND s.USERNAME = #{username}
+    </update>
 
 
 

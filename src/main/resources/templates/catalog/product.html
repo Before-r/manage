@@ -35,10 +35,11 @@
                 </td>
                 <!--                    <td th:text="${item.listPrice}">Item List Price</td>-->
                 <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}">Item List Price</td>
-                <td><input type="text" th:name="${item.quantity}" th:value="${item.quantity}"></td>
+                <td th:text="${item.quantity}"></td>
 <!--                <td><a th:href="'/cart/addItemToCart?workingItemId='+${item.itemId}">Add to Cart</a></td>-->
             </tr>
         </table>
+
     </div>
 </div>
 <footer th:replace="common/bottom"></footer>

@@ -20,31 +20,45 @@
             <tr>
 
                 <td>
-                    <img th:src="${product.descriptionImage}">
-                    <label th:text="${product.descriptionText}"></label>
+                    <img th:src="${product.descriptionImage}"></td>
+                    <td><label th:text="${product.descriptionText}"></label>
                 </td>
             </tr>
             <tr>
-                <td><b th:text="${item.itemId}">Item ID </b></td>
-            </tr>
-            <tr>
-                <td><b><font size="4" th:text="${item.attribute1}"> Item Attributes </font></b></td>
-            </tr>
-            <tr>
+                <td>Product Name:</td>
                 <td th:text="${product.name}">Product Name</td>
             </tr>
             <tr>
+                <td>Item Attributes:</td>
+                <td><b><font size="4" th:text="${item.attribute1}"> Item Attributes </font></b></td>
+            </tr>
+            <form action="/catalog/updateItem" method="post" th:object="${item}">
+            <tr>
+                <td>ItemId:</td>
                 <td>
-                    <label th:if="${item.quantity <= 0}">Back ordered.</label>
-                    <label th:if="${item.quantity > 0}" th:text="${item.quantity}+'in stock.'">Quantity in stock.</label>
+                    <input type="text" th:field="*{itemId}">
                 </td>
             </tr>
             <tr>
-                <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}">Item List Price</td>
+                <td>Quantity:</td>
+                <td><input type="text" th:field="*{quantity}"></td>
             </tr>
             <tr>
-                <td><a th:href="'/cart/addItemToCart?workingItemId='+${item.itemId}" >Add to Cart</a></td>
+<!--                <td th:text="'$'+*{#numbers.formatDecimal(listPrice,1,2)}">-->
+                <td>Price($):</td>
+                <td>
+                    <input type="text" th:field="*{listPrice}">
+                </td>
             </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save Information">
+                </td>
+                <td><a th:href="'/catalog/deleteItem?itemId='+${item.itemId}">DELETE ITEM</a></td>
+            </tr>
+
+            </form>
+
         </table>
     </div>
 </div>

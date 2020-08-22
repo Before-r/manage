@@ -1,14 +1,12 @@
 package org.csu.manage.controller;
 
-import org.csu.manage.domain.Account;
-import org.csu.manage.domain.Category;
-import org.csu.manage.domain.Item;
-import org.csu.manage.domain.Product;
+import org.csu.manage.domain.*;
 import org.csu.manage.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,6 +29,23 @@ public class CatalogController {
         List<Account> accountList = catalogService.getAccountList();
         model.addAttribute("accountList",accountList);
         return "catalog/account";
+    }
+
+    @PostMapping("updateAccount")
+    public String updateAccount(Account account,Model model) {
+        catalogService.updateAccount(account);
+        model.addAttribute("account",account);
+        return "catalog/main";
+    }
+
+
+    @PostMapping("updateItem")
+    public String updateItem(Item item,Model model) {
+        catalogService.updateItem(item);
+        Item item1 = item;
+        System.out.println(item1.getItemId());
+        model.addAttribute("item",item);
+        return "catalog/main";
     }
 
 
@@ -65,6 +80,54 @@ public class CatalogController {
         model.addAttribute("product",product);
         return "catalog/item";
     }
+
+    @GetMapping("addItem")
+    public String addItem(Model model){
+        model.addAttribute("newItem",new Item());
+        return "catalog/add_Item";
+    }
+
+    @PostMapping("add_Item")
+    public String add_Item(Item item,Model model) {
+        catalogService.insertItem(item);
+        catalogService.insertItemQuantity(item);
+        model.addAttribute("item",item);
+        return "catalog/main";
+    }
+
+    @GetMapping("deleteItem")
+    public String deleteItem(String itemId) {
+        Item item = new Item();
+        item.setItemId(itemId);
+        System.out.println(item.getItemId());
+        catalogService.deleteItem(item);
+        catalogService.deleteItemQuantity(item);
+        return "catalog/main";
+    }
+
+
+    @GetMapping("editAccount")
+    public String editAccount(String username, Model model){
+        Account account = catalogService.getAccount(username);
+        model.addAttribute("account",account);
+        return "catalog/update_Account";
+    }
+
+    @GetMapping("viewOrder")
+    public String viewOrder(Model model) {
+        return "catalog/order";
+    }
+
+    @GetMapping("updateOrder")
+    public String updateOrder() {
+        return "catalog/update_Order";
+    }
+
+    @GetMapping("sendOrder")
+    public String sendOrder() {
+        return "catalog/sendOrder";
+    }
+
 
     @PostMapping("searchProducts")
     public String searchProducts(String keyword, Model model){

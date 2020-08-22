@@ -5,6 +5,16 @@
 <mapper namespace="org.csu.manage.persistence.ItemMapper">
     <cache/>
 
+    <update id="updateItem" parameterType="Item">
+        UPDATE INVENTORY y,ITEM m SET
+            LISTPRICE = #{listPrice},
+            QTY = #{quantity}
+        WHERE y.ITEMID = #{itemId}
+        AND m.ITEMID = #{itemId}
+    </update>
+
+
+
     <select id="getItemListByProduct" parameterType="string" resultType="Item">
         SELECT
             I.ITEMID,
@@ -62,5 +72,30 @@
             QTY = QTY - #{increment}
         WHERE ITEMID = #{itemId}
     </update>
+
+    <insert id="insertItem" parameterType="Item">
+        INSERT INTO ITEM
+            (ITEMID, PRODUCTID, LISTPRICE, UNITCOST, SUPPLIER, STATUS, ATTR1)
+        VALUES(
+            #{itemId}, #{productId}, #{listPrice}, #{unitCost}, #{supplierId}, #{status},
+            #{attribute1})
+    </insert>
+    <insert id="insertItemQuantity" parameterType="Item">
+        INSERT INTO INVENTORY
+            (ITEMID, QTY)
+        VALUES(
+            #{itemId}, #{quantity})
+    </insert>
+
+    <delete id="deleteItem" parameterType="Item">
+        DELETE  FROM ITEM
+        WHERE ITEMID = #{itemId}
+    </delete>
+
+    <delete id="deleteItemQuantity" parameterType="Item">
+        DELETE  FROM INVENTORY
+        WHERE ITEMID = #{itemId}
+    </delete>
+
 
 </mapper>

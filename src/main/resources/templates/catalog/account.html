@@ -28,12 +28,12 @@
                 <th>city</th>
                 <th>zip</th>
                 <th>country</th>
+                <th>state</th>
                 <th>phone</th>
             </tr>
 
             <tr th:each="account:${accountList}">
-
-                <td th:text="${account.username}"></td>
+                <td><a th:href="'/catalog/editAccount?username='+${account.username}" th:text="${account.username}" ></a></td>
                 <td th:text="${account.password}"></td>
                 <td th:text="${account.email}"></td>
                 <td th:text="${account.firstName}"></td>
@@ -43,6 +43,7 @@
                 <td th:text="${account.city}"></td>
                 <td th:text="${account.zip}"></td>
                 <td th:text="${account.country}"></td>
+                <td th:text="${account.state}"></td>
                 <td th:text="${account.phone}"></td>
 
             </tr>

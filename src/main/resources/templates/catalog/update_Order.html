@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update_Order</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+
+    <div id="Catalog">
+        <table>
+            <tr>
+                <td><a href="/catalog/sendOrder">Send</a></td>
+            </tr>
+            <tr>
+                <th>orderId</th>
+                <td>1001</td>
+            </tr>
+            <tr>
+                <th>username</th>
+                <td>j2ee</td>
+            </tr>
+            <tr>
+                <th>itemid</th>
+                <td>EST-5</td>
+            </tr>
+            <tr>
+                <th>Address1</th>
+                <td><input type="text" value="901 San Antonio Road"></td>
+            </tr>
+            <tr>
+                <th>Address2</th>
+                <td><input type="text" value="MS UCUP02-206"></td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td><input type="text" value="Palo Alto"></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><input type="text" value="CA"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save Information">
+                </td>
+                <td><a href="#">DELETE ORDER</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

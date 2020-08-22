@@ -1,17 +1,16 @@
 package org.csu.manage.service;
 
-import org.csu.manage.domain.Category;
-import org.csu.manage.domain.Item;
-import org.csu.manage.domain.Product;
-import org.csu.manage.domain.Account;
+import org.csu.manage.domain.*;
 import org.csu.manage.persistence.CategoryMapper;
 import org.csu.manage.persistence.ItemMapper;
 import org.csu.manage.persistence.ProductMapper;
 import org.csu.manage.persistence.AccountMapper;
+import org.csu.manage.persistence.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CatalogService {
@@ -24,9 +23,15 @@ public class CatalogService {
     private ItemMapper itemMapper;
     @Autowired
     private AccountMapper accountMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
     public List<Account> getAccountList() {
         return accountMapper.getAccountList();
+    }
+
+    public List<Order> getOrderList() {
+        return orderMapper.getOrderList();
     }
 
 
@@ -60,6 +65,34 @@ public class CatalogService {
 
     public boolean isItemInStock(String itemId){
         return itemMapper.getInventoryQuantity(itemId) > 0;
+    }
+
+    public void updateItem(Item item) {
+        itemMapper.updateItem(item);
+    }
+
+    public void insertItem(Item item) {
+        itemMapper.insertItem(item);
+    }
+
+    public void insertItemQuantity(Item item) {
+        itemMapper.insertItemQuantity(item);
+    }
+
+    public void deleteItem(Item item) {
+        itemMapper.deleteItem(item);
+    }
+
+    public void deleteItemQuantity(Item item) {
+        itemMapper.deleteItemQuantity(item);
+    }
+
+    public void updateAccount(Account account) {
+        accountMapper.updateAccount(account);
+    }
+
+    public Account getAccount(String username) {
+        return accountMapper.getAccount(username);
     }
 
 }

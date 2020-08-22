@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>order</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
+</head>
+<body>
+<header th:replace="common/top"></header>
+<div id="Content">
+    <div id="BackLink">
+        <a href="/catalog/index">Return to Main Menu</a>
+    </div>
+
+    <div id="Catalog">
+
+        <h2>Order</h2>
+        <table>
+            <tr>
+                <th>orderId</th>
+                <th>username</th>
+                <th>itemid</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Country</th>
+                <th>totalPrice</th>
+            </tr>
+
+            <tr>
+                <td><a href="/catalog/updateOrder">1001</a></td>
+                <td>j2ee</td>
+                <td>EST-5</td>
+                <td>901 San Antonio Road</td>
+                <td>MS UCUP02-206</td>
+                <td>Palo Alto</td>
+                <td>CA</td>
+                <td>c</td>
+                <td>USA</td>
+                <td>18.5$</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
